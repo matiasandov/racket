@@ -1,0 +1,46 @@
+2
+261
+-63
+5.23
+-5.23
+4e8
+4e-8
+4.51e8
+-4.51e8
+-4.51e-8
+
+// Variables
+data
+data34
+
+2+1
+5.2+3
+5.2+3.7
+
+// Operations with variables
+one+two
+one+two/45.2
+
+// Spaces between operators
+2 + 1
+6 = 2 + 1
+one + two / 45.2
+97 /6 = 2 + 1
+7.4 ^3 = 2.0 * 1
+
+// Parentheses
+(45)
+( 45 )
+(4 + 5)
+(4 + 5) * (6 - 3)
+
+// Comments
+3// this is all
+3+5 // this is all
+area = 3.1415 * raduis ^2 // area of a circle
+result = -34.6e10 * previous / 2.0 // made up formula
+cel = (far - 32) * 5 / 9.0 // temperature conversion
+
+// Extreme cases of spaces before or after the expression
+  2 + 1
+  2 + 1

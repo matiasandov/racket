@@ -1,0 +1,49 @@
+#lang racket
+(define (prime? n)
+  ;te dice si es primo o no
+  (if (zero? (remainder n 2))
+      #f
+      #t)
+  )
+
+; le pasaras un limite hasta cual sumar, revisas primalidad
+; y vas sumando, cada numero se pasara a la funcion de arriba
+
+;(define (sum-prime limit)
+  
+ ; )
+
+;main es un thread que correra threads
+;no puede tener argumentos
+(define (make-thread name  limit)
+  ;regresara un thread sin argumentos con lambda
+  ;crea el thread y lo lanza con una funcion anonima que no encesita parametros
+  (thread (lambda ()
+  ;loop desde cero hasta limit
+  (let loop
+    ([n 0])
+     (cond
+       ;aqui el decidio ponerle que se itere hasta un limite 20
+       [(< n limit)
+        (printf "thread ~a - Number ~a\n" name n)
+        (sleep (random))
+        (loop (add1 n))]
+       [else (printf "Finished")])))))
+           ;imprime numero e itera de nuevo
+        
+
+(define (main)
+  ;tienes que decir que funcion llamara dentro dle thread y no puede tener argumentos
+  ; asi pasas argumentos, capsulando una funcion sin argumentos dentro de otra con argumentos
+  ; y devolver solo el thread
+  ;aqui estas definiendo un nombre donde se guardara el thread que regresa make-thread
+  (define my-thread (make-thread "name" 20))
+  (for ([n 20])
+    ;se duerme un momento para que otros thread tome uso del procesador
+    ;no se debe usar siempre
+    (sleep (random))
+    (printf "in main thread : ~a\n" n))
+  ; lo matas cuando acabe 
+  (kill-thread my-thread)
+  ;cuando ya avabe
+  (printf "main finishes"))
